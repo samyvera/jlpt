@@ -3,19 +3,45 @@
 <html>
 
 <head>
-    <title>Hiragana Quiz</title>
+    <title>JLPT N5 Quiz</title>
     <meta charset="utf-8">
 	<link rel="icon" href="favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script src="js/characters.js"></script>
+    <script src="js/questions.js"></script>
     <script src="js/main.js"></script>
 </head>
 
 <body>
     <div id="menu" class="container">
-        <div class="text title">Hiragana Quiz</div>
-        <div class="button" onclick="start(20);">Start</div>
+        <div class="text title">Modern Japanese writing system quiz (JLPT N5)</div>
+        <div id="options">
+            <div class="option">
+                <label for="questionCount">Number of questions</label>
+                <input type="number" id="questionCount" name="questionCount" step="10" min="10" max="100" value="20">
+            </div>
+            <div class="option">
+                <input type="checkbox" id="hiragana" name="questions" value="hiragana" checked>
+                <label for="hiragana">Hiragana</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="katakana" name="questions" value="katakana" disabled>
+                <label for="katakana">Katakana</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="kanji" name="questions" value="kanji" disabled>
+                <label for="kanji">Kanji</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="vocabulary" name="questions" value="vocabulary" disabled>
+                <label for="vocabulary">Vocabulary</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="grammaticalForms" name="questions" value="grammaticalForms" disabled>
+                <label for="grammaticalForms">Grammatical forms</label>
+            </div>
+        </div>
+        <div class="button" onclick="start();">Start</div>
     </div>
     <div id="question" class="container" style="display: none;">
         <div id="character" class="text dark"></div>
@@ -25,7 +51,8 @@
     <div id="result" class="container" style="display: none;">
         <div class="text title">Result</div>
         <div id="mark" class="text dark"></div>
-        <div class="button" onclick="start(20);">Restart</div>
+        <div class="button" onclick="start();">Restart</div>
+        <div class="button" onclick="location.reload(true);">Exit</div>
     </div>
 </body>
 
