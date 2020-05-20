@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Hiragana Quiz</title>
+    <meta charset="utf-8">
+	<link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="js/characters.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <div id="menu" class="container">
+        <div class="text title">Hiragana Quiz</div>
+        <div class="button" onclick="start(20);">Start</div>
+    </div>
+    <div id="question" class="container" style="display: none;">
+        <div id="character" class="text dark"></div>
+        <div id="answers"></div>
+        <div id="stats" class="text dark"></div>
+    </div>
+    <div id="result" class="container" style="display: none;">
+        <div class="text title">Result</div>
+        <div id="mark" class="text dark"></div>
+        <div class="button" onclick="start(20);">Restart</div>
+    </div>
+</body>
+
+</html>
