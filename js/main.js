@@ -1,46 +1,63 @@
-const start = () => {
-    let questionPool = [];
-    document.getElementsByName("questions").forEach(option => {
-        if (option.checked) questionPool = [...questionPool, ...questions[option.id]];
-    });
+const start1 = () => {
+    const questionPool = Array.from(document.getElementsByName("questions1"))
+        .filter(option => option.checked)
+        .map(option => QUESTIONS[option.value])
+        .flat();
     if (questionPool.length) {
+        document.getElementById("stats1").innerHTML = " _".repeat(parseInt(document.getElementById("questionCount1").value));
         document.getElementById("menu").style.display = "none";
-        document.getElementById("question").style.display = "flex";
-        document.getElementById("result").style.display = "none";
-        askQuestion(new Array(parseInt(document.getElementById("questionCount").value)).fill(null), questionPool, 0);
-    } else console.log("error");
+        document.getElementById("question1").style.display = "flex";
+        document.getElementById("result1").style.display = "none";
+        askQuestion(questionPool);
+    } else alert("You must select at least one question type.")
 }
 
-const askQuestion = (results, questionPool, index) => {
-    const answerCount = 4;
-    const answerIndex = Math.floor(Math.random() * answerCount);
-    const answers = questionPool.sort(() => .5 - Math.random()).slice(0, answerCount);
-    document.getElementById("character").innerHTML = answers[answerIndex][1];
-    const statsElem = document.getElementById("stats");
-    statsElem.innerHTML = "";
-    for (let i = 0; i < results.length; i++) statsElem.innerHTML += " " + (results[i] === null ? "_" : results[i] === true ? "o" : "x");
-    const answersElem = document.getElementById("answers");
-    answersElem.innerHTML = "";
-    for (let i = 0; i < answerCount; i++) {
-        const answerElem = document.createElement("div");
-        answerElem.className = "button answer";
-        answerElem.innerHTML = answers[i][0];
-        answerElem.onclick = () => answerQuestion(results, questionPool, index, answers[answerIndex][0], answers[i][0]);
-        answersElem.appendChild(answerElem);
-    }
-}
-
-const answerQuestion = (results, questionPool, index, answer, guess) => {
-    document.getElementById("answers").childNodes.forEach(child => {
-        child.onclick = () => false;
-        child.style.backgroundColor = child.innerHTML === answer ? "#0f0" : "#f00";
+const askQuestion = questionPool => {
+    const choices = questionPool.sort(() => .5 - Math.random()).slice(0, 4);
+    const answer = choices[Math.floor(Math.random() * 4)];
+    const character1 = document.getElementById("character1");
+    character1.innerHTML = '<div class="sub-text" style="margin: 0 auto;z-index: 1;">' + answer[1] + '</div>';
+    const timeoutElem = document.createElement("div");
+    timeoutElem.id = 'timeoutElem';
+    timeoutElem.style.animation = "progress " + parseInt(document.getElementById("questionSpeed1").value) + "s ease-in-out";
+    character1.appendChild(timeoutElem);
+    const timeout = setTimeout(() => {
+        answerQuestion(questionPool, answer[1], '');
+    }, parseInt(document.getElementById("questionSpeed1").value) * 1000);
+    const choicesElem = document.getElementById("choices1");
+    choicesElem.innerHTML = "";
+    choices.forEach(choice => {
+        const choiceElem = document.createElement("div");
+        choiceElem.className = "button choice";
+        choiceElem.onclick = () => {
+            clearTimeout(timeout);
+            answerQuestion(questionPool, answer[1], choice[1]);
+        }
+        choicesElem.appendChild(choiceElem);
+        const choiceGuess = document.createElement("p");
+        choiceGuess.className = "choice-guess";
+        choiceGuess.innerHTML = choice[0];
+        choiceElem.appendChild(choiceGuess);
+        const choiceValue = document.createElement("p");
+        choiceValue.className = "choice-value";
+        choiceValue.innerHTML = choice[1];
+        choiceElem.appendChild(choiceValue);
     });
-    results[index] = guess === answer;
-    setTimeout(() => index + 1 < results.length ? askQuestion(results, questionPool, index + 1) : end(results), 1000);
 }
 
-const end = results => {
-    document.getElementById("question").style.display = "none";
-    document.getElementById("result").style.display = "flex";
-    document.getElementById("mark").innerHTML = results.filter(guess => guess).length + "/" + results.length;
+const answerQuestion = (questionPool, answer, guess) => {
+    const stats = document.getElementById("stats1");
+    stats.innerHTML = stats.innerHTML.replace("_", guess === answer ? "o" : "x");
+    document.getElementById("choices1").childNodes.forEach(child => {
+        child.onclick = () => false;
+        child.style.backgroundColor = child.lastChild.innerHTML === answer ? "#0f0" : "#f00";
+        child.style.fontSize = "32px";
+    });
+    setTimeout(() => stats.innerHTML.match(/_/g) ? askQuestion(questionPool) : end(), 1000);
+}
+
+const end = () => {
+    document.getElementById("question1").style.display = "none";
+    document.getElementById("result1").style.display = "flex";
+    document.getElementById("score1").innerHTML = "Score : " + (document.getElementById("stats1").innerHTML.match(/o/g) || []).length + "/" + document.getElementById("questionCount1").value;
 }

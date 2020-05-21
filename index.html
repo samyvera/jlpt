@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>JLPT N5 Training</title>
+    <title>JLPT Training</title>
     <meta charset="utf-8">
 	<link rel="icon" href="favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -12,46 +12,86 @@
     <script src="js/main.js"></script>
 </head>
 
-<body>
+<body oncontextmenu="return false;">
     <div id="menu" class="container">
-        <div class="text title">JLPT N5 Training</div>
-        <div id="options">
-            <div class="option">
-                <label for="questionCount">Number of questions</label>
-                <input type="number" id="questionCount" name="questionCount" step="10" min="10" max="100" value="20">
+        <div class="text">JLPT Training -N5-</div>
+        <div class="exercices">
+            <div class="exercice">
+                <div class="sub-container">
+                    <div class="sub-text">Guess the character</div>
+                    <div class="option">
+                        <label for="questionCount1">Questions: </label>
+                        <input type="number" id="questionCount1" name="questionCount1" step="10" min="10" max="100" value="20">
+                    </div>
+                    <div class="option">
+                        <label for="questionSpeed1">Speed: </label>
+                        <input type="number" id="questionSpeed1" name="questionSpeed1" step="1" min="1" max="10" value="2">
+                        <label for="questionSpeed1">second(s)</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="hiragana1" name="questions1" value="hiragana" checked>
+                        <label for="hiragana">Hiragana</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="katakana1" name="questions1" value="katakana">
+                        <label for="katakana">Katakana</label>
+                    </div>
+                </div>
+                <div class="button" onclick="start1();">Start</div>
             </div>
-            <div class="option">
-                <input type="checkbox" id="hiragana" name="questions" value="hiragana" checked>
-                <label for="hiragana">Hiragana</label>
+            <div class="exercice">
+                <div class="sub-container">
+                    <div class="sub-text">Guess the meaning</div>
+                    <div class="option">
+                        <label for="questionCount">Questions:</label>
+                        <input type="number" id="questionCount2" name="questionCount2" step="10" min="10" max="100" value="20">
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="kanji2" name="questions2" value="kanji" disabled>
+                        <label for="kanji">Kanji</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="vocabulary2" name="questions2" value="vocabulary" disabled>
+                        <label for="vocabulary">Vocabulary</label>
+                    </div>
+                </div>
+                <div class="button" onclick="start2();">Start</div>
             </div>
-            <div class="option">
-                <input type="checkbox" id="katakana" name="questions" value="katakana">
-                <label for="katakana">Katakana</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="kanji" name="questions" value="kanji" disabled>
-                <label for="kanji">Kanji</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="vocabulary" name="questions" value="vocabulary" disabled>
-                <label for="vocabulary">Vocabulary</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="grammaticalForms" name="questions" value="grammaticalForms" disabled>
-                <label for="grammaticalForms">Grammatical forms</label>
+            <div class="exercice">
+                <div class="sub-container">
+                    <div class="sub-text">Write the character</div>
+                    <div class="option">
+                        <label for="questionCount">Questions:</label>
+                        <input type="number" id="questionCount3" name="questionCount3" step="10" min="10" max="100" value="20">
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="hiragana3" name="questions3" value="hiragana" disabled>
+                        <label for="hiragana">Hiragana</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="katakana3" name="questions3" value="katakana" disabled>
+                        <label for="katakana">Katakana</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="kanji3" name="questions3" value="kanji" disabled>
+                        <label for="kanji">Kanji</label>
+                    </div>
+                </div>
+                <div class="button" onclick="start3();">Start</div>
             </div>
         </div>
-        <div class="button" onclick="start();">Start</div>
     </div>
-    <div id="question" class="container" style="display: none;">
-        <div id="character" class="text dark"></div>
-        <div id="answers"></div>
-        <div id="stats" class="text dark"></div>
+    <div id="question1" class="container" style="display: none;">
+        <div id="character1" class="text dark"></div>
+        <div id="choices1" class="choices"></div>
+        <div id="stats1" class="text dark"></div>
     </div>
-    <div id="result" class="container" style="display: none;">
-        <div class="text title">Result</div>
-        <div id="mark" class="text dark"></div>
-        <div class="button" onclick="start();">Restart</div>
+    <div id="result1" class="container" style="display: none;">
+        <div class="text">Result</div>
+        <div class="sub-container">
+            <div id="score1" class="sub-text"></div>
+        </div>
+        <div class="button" onclick="start1();">Restart</div>
         <div class="button" onclick="location.reload(true);">Exit</div>
     </div>
 </body>

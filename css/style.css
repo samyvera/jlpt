@@ -1,4 +1,7 @@
-html,
+html {
+    height: 100%;
+}
+
 body {
     width: 100%;
     height: 100%;
@@ -9,13 +12,23 @@ body {
 }
 
 .container {
-    max-width: 576px;
     margin: auto;
     display: flex;
     flex-direction: column;
     background-color: #fff;
     box-shadow: inset 0px 0px 8px #ddd;
     border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.exercices {
+    display: flex;
+    flex-direction: row;
+}
+
+.exercice {
+    display: flex;
+    flex-direction: column;
 }
 
 .text {
@@ -26,13 +39,20 @@ body {
     text-align: center;
 }
 
+.sub-text {
+    margin: 8px;
+    padding: 4px;
+    font-size: 24px;
+    text-align: center;
+}
+
 .text.dark {
     background-color: #000;
     color: #fff;
 }
 
-#options {
-    margin: 0px auto;
+.sub-container {
+    margin: 0px 16px;
     padding: 8px;
     background-color: #ddd;
     box-shadow: 0px 0px 8px #ddd;
@@ -43,7 +63,7 @@ body {
     padding: 4px 8px;
 }
 
-#answers {
+.choices {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -55,8 +75,8 @@ body {
 }
 
 .button {
-    margin: 16px;
-    padding: 8px;
+    margin: 16px auto;
+    padding: 8px 32px;
     background-color: #000;
     color: #fff;
     text-align: center;
@@ -71,7 +91,46 @@ body {
     transition: .3s;
 }
 
-.answer {
+.choice {
     width: 96px;
+    height: 96px;
+    margin: 16px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
     font-size: 64px;
+}
+
+.choice-guess {
+    width: 96px;
+    margin: 0;
+    transition: .2s;
+}
+
+.choice-value {
+    width: 96px;
+    height: 0px;
+    margin: 0;
+    transition: .2s;
+}
+
+#character1 {
+    display: flex;
+    text-align: center;
+}
+
+#timeoutElem {
+    height: 35px;
+    position:absolute;
+    background: linear-gradient(to left, #fff, #000);
+}
+
+@keyframes progress {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 528px;
+    }
 }
