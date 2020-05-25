@@ -1,3 +1,5 @@
+let SCORE = 0;
+
 const askQuestion = () => {
     const settingOrder = document.getElementById("setting-order").value;
     const questionOrder = settingOrder === "question" ? "trad" : "jp";
@@ -54,6 +56,8 @@ const askQuestion = () => {
 }
 
 const answerQuestion = (answer, guess) => {
+    SCORE = guess === answer ? SCORE + 1 : 0;
+    console.log(SCORE)
     document.getElementById("answers").childNodes.forEach(answerElem => {
         answerElem.onclick = () => false;
         answerElem.style.backgroundColor = answerElem.lastChild.innerHTML === answer ? "#0f0" : "#f00";

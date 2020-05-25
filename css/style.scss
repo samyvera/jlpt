@@ -3,6 +3,9 @@ $color: #422;
 $color-light: #844;
 $color-black: #000;
 $color-white: #fff;
+$color-bg: #ffe;
+$color-secondary-light: #ff8;
+$color-secondary: #884;
 
 html {
     height: 100%;
@@ -21,9 +24,10 @@ html {
             top: 0;
             left: 0;
             width: 240px;
+            margin: 8px;
             padding: 8px;
-            background-color: $color-dark;
-            box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-white, 8px 8px $color-dark;
+            background-color: $color;
+            box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-secondary, 8px 8px $color-dark;
             z-index: 100;
 
             #setting-title {
@@ -51,7 +55,7 @@ html {
             margin: auto;
             display: flex;
             flex-direction: column;
-            background-color: $color-white;
+            background-color: $color-bg;
             box-shadow: $color-dark 16px 16px;
             flex-shrink: 0;
 
@@ -60,8 +64,8 @@ html {
                 margin: 16px;
                 padding: 8px;
                 display: flex;
-                background-color: $color-dark;
-                box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-white, 4px 4px $color-black; 
+                background-color: $color;
+                box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-secondary, 4px 4px $color-black; 
                 text-align: center;
                 font-size: 32px;
                 text-align: center;
@@ -94,8 +98,8 @@ html {
                     padding: 8px;
                     display: flex;
                     flex-direction: column;
-                    background-color: $color-light;
-                    box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-white, 8px 8px $color-black; 
+                    background-color: $color;
+                    box-shadow: inset 0 0 0 2px $color, inset 0 0 0 4px $color-secondary, 4px 4px $color-black; 
                     text-align: center;
                     font-size: 48px;
                     transition: .1s;
@@ -120,10 +124,11 @@ html {
                 }
 
                 .answer:hover {
-                    background-color: $color;
-                    box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-white, 4px 4px $color-black; 
+                    margin: 12px 16px 20px 16px;
+                    background-color: $color-light;
+                    box-shadow: inset 0 0 0 2px $color, inset 0 0 0 4px $color-secondary-light, 8px 8px $color-black;
                     transition: .1s;
-                    transform: rotate(5deg);
+                    transform: scale(1.05) rotate(3deg);
                 }
             }
         }
