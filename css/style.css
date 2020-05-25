@@ -1,146 +1,209 @@
 html {
-    height: 100%;
+  height: 100%;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    display: flex;
-    background-image: repeating-linear-gradient(-15deg, transparent, transparent 8px, #800 8px, #800 16px),
-        repeating-linear-gradient(75deg, #000, #000 8px, #800 8px, #800 16px);
-    user-select: none;
+html body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #fff;
+  -webkit-animation: animationBackground 1s ease-in-out infinite alternate;
+          animation: animationBackground 1s ease-in-out infinite alternate;
 }
 
-/* Settings */
-
-#settings-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 240px;
-    padding: 8px;
-    background-color: #000;
-    color: #fff;
-    box-shadow: inset 0 0 0 2px #000, inset 0 0 0 4px #fff; 
-    z-index: 100;
+html body #settings-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  padding: 8px;
+  background-color: #211;
+  -webkit-box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 8px 8px #211;
+          box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 8px 8px #211;
+  z-index: 100;
 }
 
-#setting-title {
-    margin: 8px;
-    padding: 4px;
-    font-size: 24px;
-    text-align: center;
-    line-height: 24px;
+html body #settings-container #setting-title {
+  margin: 8px;
+  padding: 4px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 24px;
 }
 
-#settings {
-    display: flex;
-    flex-direction: column;
-    transition: .2s;
-    overflow: hidden;
+html body #settings-container #settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: .2s;
+  transition: .2s;
+  overflow: hidden;
 }
 
-.sub-container {
-    margin: 0px 16px;
-    padding: 8px;
-    background-color: #ddd;
+html body #settings-container #settings .option {
+  padding: 8px 8px;
 }
 
-.option {
-    padding: 8px 8px;
+html body #question-container {
+  max-width: 576px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  -webkit-box-shadow: #211 16px 16px;
+          box-shadow: #211 16px 16px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
-/* Question */
-
-#question-container {
-    max-width: 576px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    box-shadow: #000 16px 16px;
-    flex-shrink: 0;
+html body #question-container #question {
+  height: 32px;
+  margin: 16px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #211;
+  -webkit-box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 4px 4px #000;
+          box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 4px 4px #000;
+  text-align: center;
+  font-size: 32px;
+  text-align: center;
 }
 
-#question {
-    height: 32px;
-    margin: 16px;
-    padding: 8px;
-    display: flex;
-    background-color: #000;
-    color: #fff;
-    box-shadow: inset 0 0 0 2px #000, inset 0 0 0 4px #fff; 
-    text-align: center;
-    font-size: 32px;
-    text-align: center;
+html body #question-container #question #question-content {
+  margin: 0 auto;
+  padding: 4px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
 }
 
-#question-content {
-    margin: 0 auto;
-    padding: 4px;
-    font-size: 24px;
-    text-align: center;
-    line-height: 24px;
-    z-index: 1;
+html body #question-container #question #timeoutElem {
+  height: 1em;
+  position: absolute;
+  background-color: #844;
 }
 
-#timeoutElem {
-    height: 1em;
-    position:absolute;
-    background-color: #888;
+html body #question-container .answers {
+  width: 100%;
+  height: 144px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.answers {
-    width: 100%;
-    height: 144px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+html body #question-container .answers .answer {
+  margin: 16px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #844;
+  -webkit-box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 8px 8px #000;
+          box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 8px 8px #000;
+  text-align: center;
+  font-size: 48px;
+  -webkit-transition: .1s;
+  transition: .1s;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.answer {
-    margin: 16px;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    background-color: #000;
-    color: #fff;
-    box-shadow: inset 0 0 0 2px #000, inset 0 0 0 4px #fff; 
-    text-align: center;
-    font-size: 48px;
-    transition: .3s;
-    cursor: pointer;
-    overflow: hidden;
+html body #question-container .answers .answer .answer-guess {
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+  line-height: 96px;
 }
 
-.answer:hover {
-    background-color: #888;
-    transition: .3s;
+html body #question-container .answers .answer .answer-value {
+  width: 96px;
+  height: 0px;
+  margin: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+  color: transparent;
 }
 
-.answer-guess {
-    width: 96px;
-    height: 96px;
-    margin: 0;
-    transition: .2s;
-    line-height: 96px;
+html body #question-container .answers .answer:hover {
+  background-color: #422;
+  -webkit-box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 4px 4px #000;
+          box-shadow: inset 0 0 0 2px #211, inset 0 0 0 4px #fff, 4px 4px #000;
+  -webkit-transition: .1s;
+  transition: .1s;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
 }
 
-.answer-value {
-    width: 96px;
-    height: 0px;
-    margin: 0;
-    transition: .2s;
-    color: transparent;
+@-webkit-keyframes progress {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 528px;
+  }
 }
 
 @keyframes progress {
-    0% {
-        width: 0px;
-    }
-
-    100% {
-        width: 528px;
-    }
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 528px;
+  }
 }
+
+@-webkit-keyframes animationBackground {
+  0% {
+    background-image: repeating-linear-gradient(-15deg, transparent, transparent 8px, #422 8px, #422 16px), repeating-linear-gradient(75deg, #211, #211 8px, #422 8px, #422 16px);
+  }
+  50% {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 8px, #422 8px, #422 16px), repeating-linear-gradient(90deg, #211, #211 8px, #422 8px, #422 16px);
+  }
+  100% {
+    background-image: repeating-linear-gradient(15deg, transparent, transparent 8px, #422 8px, #422 16px), repeating-linear-gradient(105deg, #211, #211 8px, #422 8px, #422 16px);
+  }
+}
+
+@keyframes animationBackground {
+  0% {
+    background-image: repeating-linear-gradient(-15deg, transparent, transparent 8px, #422 8px, #422 16px), repeating-linear-gradient(75deg, #211, #211 8px, #422 8px, #422 16px);
+  }
+  50% {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 8px, #422 8px, #422 16px), repeating-linear-gradient(90deg, #211, #211 8px, #422 8px, #422 16px);
+  }
+  100% {
+    background-image: repeating-linear-gradient(15deg, transparent, transparent 8px, #422 8px, #422 16px), repeating-linear-gradient(105deg, #211, #211 8px, #422 8px, #422 16px);
+  }
+}
+/*# sourceMappingURL=style.css.map */
