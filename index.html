@@ -13,103 +13,53 @@
 </head>
 
 <body oncontextmenu="return false;">
-    <div id="menu" class="container">
-        <div class="text">JLPT Training -N5-</div>
-        <div class="exercices">
-            <div class="exercice">
-                <div class="sub-container">
-                    <div class="sub-text">Guess the character</div>
-                    <fieldset>
-                        <legend>Options</legend>
-                        <div class="option">
-                            <label for="questionCount1">Questions: </label>
-                            <input type="number" id="questionCount1" name="questionCount1" step="10" min="10" max="100" value="20">
-                        </div>
-                        <div class="option">
-                            <label for="questionOrder">Character: </label>
-                            <select name="questionOrder" id="questionOrder">
-                                <option value="trad">Latin</option>
-                                <option value="jp">Japanese</option>
-                            </select>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="hiragana1" name="questions1" value="hiragana" checked>
-                            <label for="hiragana">Hiragana</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="katakana1" name="questions1" value="katakana">
-                            <label for="katakana">Katakana</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="questionSpeedOn1" name="questionSpeedOn1" value="questionSpeedOn1" checked>
-                            <label for="questionSpeed1">Time Attack: </label>
-                            <input type="number" id="questionSpeed1" name="questionSpeed1" step="1" min="1" max="10" value="2">
-                            <label for="questionSpeed1">sec(s)/question</label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="button" onclick="start1();">Start</div>
+
+    <!-- Settings -->
+    <div id="settings-container">
+        <p>Settings</p>
+
+        <div id="settings" style="height: 0px;">
+            <div class="option">
+                <label for="setting-order">Rōmaji in the</label>
+                <select name="setting-order" id="setting-order">
+                    <option value="question">questions</option>
+                    <option value="answer">answers</option>
+                </select>
             </div>
-            <div class="exercice">
-                <div class="sub-container">
-                    <div class="sub-text">Guess the meaning</div>
-                    <fieldset>
-                        <legend>Options</legend>
-                        <div class="option">
-                            <label for="questionCount">Questions:</label>
-                            <input type="number" id="questionCount2" name="questionCount2" step="10" min="10" max="100" value="20">
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="kanji2" name="questions2" value="kanji" disabled>
-                            <label for="kanji">Kanji</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="vocabulary2" name="questions2" value="vocabulary" disabled>
-                            <label for="vocabulary">Vocabulary</label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="button" onclick="start2();">Start</div>
+
+            <div class="option">
+                <input type="checkbox" id="setting-hiragana" name="setting-mode" value="hiragana" checked>
+                <label for="setting-hiragana">Hiragana</label>
             </div>
-            <div class="exercice">
-                <div class="sub-container">
-                    <div class="sub-text">Write the character</div>
-                        <fieldset>
-                            <legend>Options</legend>
-                        <div class="option">
-                            <label for="questionCount">Questions:</label>
-                            <input type="number" id="questionCount3" name="questionCount3" step="10" min="10" max="100" value="20">
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="hiragana3" name="questions3" value="hiragana" disabled>
-                            <label for="hiragana">Hiragana</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="katakana3" name="questions3" value="katakana" disabled>
-                            <label for="katakana">Katakana</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" id="kanji3" name="questions3" value="kanji" disabled>
-                            <label for="kanji">Kanji</label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="button" onclick="start3();">Start</div>
+
+            <div class="option">
+                <input type="checkbox" id="setting-katakana" name="setting-mode" value="katakana">
+                <label for="setting-katakana">Katakana</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox" id="setting-kanji" name="setting-mode" value="kanji" disabled>
+                <label for="setting-kanji">Kanji</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox" id="setting-vocabulary" name="setting-mode" value="vocabulary" disabled>
+                <label for="setting-vocabulary">Vocabulary</label>
+            </div>
+            
+            <div class="option">
+                <input type="checkbox" id="setting-time-attack" name="setting-time-attack" value="time-attack">
+                <label for="setting-time-attack">Time Attack:</label>
+                <input type="number" id="setting-time-attack-speed" name="setting-time-attack-speed" step="1" min="1" max="10" value="2">
+                <label for="setting-time-attack-speed">sec(s)</label>
             </div>
         </div>
     </div>
-    <div id="question1" class="container" style="display: none;">
-        <div id="character1" class="text dark"></div>
-        <div id="choices1" class="choices"></div>
-        <div id="stats1" class="text dark"></div>
-    </div>
-    <div id="result1" class="container" style="display: none;">
-        <div class="text">Result</div>
-        <div class="sub-container">
-            <div id="score1" class="sub-text"></div>
-        </div>
-        <div class="button" onclick="start1();">Restart</div>
-        <div class="button" onclick="location.reload(true);">Exit</div>
+
+    <!-- Question -->
+    <div id="question-container">
+        <div id="question" class="dark"></div>
+        <div id="answers" class="answers"></div>
     </div>
 </body>
 

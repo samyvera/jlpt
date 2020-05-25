@@ -1,73 +1,76 @@
-const start1 = () => {
-    const questionPool = Array.from(document.getElementsByName("questions1"))
+const askQuestion = () => {
+    const settingOrder = document.getElementById("setting-order").value;
+    const questionMode = settingOrder === "question" ? "trad" : "jp";
+    const answerMode = settingOrder === "answer" ? "trad" : "jp";
+
+    const questionPool = Array.from(document.getElementsByName("setting-mode"))
         .filter(option => option.checked)
         .map(option => QUESTIONS[option.value])
         .flat();
-    if (questionPool.length) {
-        document.getElementById("stats1").innerHTML = " _".repeat(parseInt(document.getElementById("questionCount1").value));
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("question1").style.display = "flex";
-        document.getElementById("result1").style.display = "none";
-        askQuestion(questionPool);
-    } else alert("Invalid options.");
-}
+    if (!questionPool.length) window.location.reload(true);
 
-const askQuestion = questionPool => {
-    var characterMode = document.getElementById("questionOrder").value;
-    var otherMode = characterMode === "trad" ? "jp" : "trad";
-    const choices = questionPool.sort(() => .5 - Math.random()).slice(0, 4);
-    const answer = choices[Math.floor(Math.random() * 4)];
-    const character1 = document.getElementById("character1");
-    character1.innerHTML = '<div class="sub-text" style="margin: 0 auto;z-index: 1;">' + answer[characterMode] + '</div>';
+    const possibleAnswers = questionPool.sort(() => .5 - Math.random()).slice(0, 4);
+    const answer = possibleAnswers[Math.floor(Math.random() * 4)];
+
+    const questionElem = document.getElementById("question");
+    questionElem.innerHTML = '<p style="margin: 0 auto;z-index: 1;">' + answer[questionMode] + '</p>';
+
+    const settingTimeAttack = document.getElementById("setting-time-attack").checked;
     let timeout = null;
     const timeoutElem = document.createElement("div");
     timeoutElem.id = 'timeoutElem';
-    if (document.getElementById("questionSpeedOn1").checked) {
-        timeoutElem.style.animation = "progress " + parseInt(document.getElementById("questionSpeed1").value) + "s ease-out";
-        character1.appendChild(timeoutElem);
+    if (settingTimeAttack) {
+        const speed = parseInt(document.getElementById("setting-time-attack-speed").value);
+        timeoutElem.style.animation = "progress " + speed + "s ease-out";
+        questionElem.appendChild(timeoutElem);
         timeout = setTimeout(() => {
-            answerQuestion(questionPool, answer[characterMode], '');
-        }, parseInt(document.getElementById("questionSpeed1").value) * 1000);
+            answerQuestion(answer[questionMode], '');
+        }, speed * 1000);
     }
-    const choicesElem = document.getElementById("choices1");
-    choicesElem.innerHTML = "";
-    choices.forEach(choice => {
-        const choiceElem = document.createElement("div");
-        choiceElem.className = "button choice";
-        choiceElem.onclick = () => {
-            if (document.getElementById("questionSpeedOn1").checked) {
+
+    const answersElem = document.getElementById("answers");
+    answersElem.innerHTML = "";
+    possibleAnswers.forEach(possibleAnswer => {
+        const answerElem = document.createElement("div");
+        answerElem.className = "answer";
+        answerElem.onclick = () => {
+            if (settingTimeAttack) {
                 timeoutElem.style.webkitAnimationPlayState = 'paused';
                 clearTimeout(timeout);
             }
-            answerQuestion(questionPool, answer[characterMode], choice[characterMode]);
+            answerQuestion(answer[questionMode], possibleAnswer[questionMode]);
         }
-        choicesElem.appendChild(choiceElem);
-        const choiceGuess = document.createElement("p");
-        choiceGuess.className = "choice-guess";
-        choiceGuess.innerHTML = choice[otherMode];
-        choiceElem.appendChild(choiceGuess);
-        const choiceValue = document.createElement("p");
-        choiceValue.className = "choice-value";
-        choiceValue.innerHTML = choice[characterMode];
-        choiceElem.appendChild(choiceValue);
+        answersElem.appendChild(answerElem);
+        const answerGuess = document.createElement("div");
+        answerGuess.className = "answer-guess";
+        answerGuess.innerHTML = possibleAnswer[answerMode];
+        answerElem.appendChild(answerGuess);
+        const answerValue = document.createElement("div");
+        answerValue.className = "answer-value";
+        answerValue.innerHTML = possibleAnswer[questionMode];
+        answerElem.appendChild(answerValue);
     });
 }
 
-const answerQuestion = (questionPool, answer, guess) => {
-    const stats = document.getElementById("stats1");
-    stats.innerHTML = stats.innerHTML.replace("_", guess === answer ? "o" : "x");
-    document.getElementById("choices1").childNodes.forEach(child => {
-        child.onclick = () => false;
-        child.style.backgroundColor = child.lastChild.innerHTML === answer ? "#0f0" : "#f00";
-        child.firstChild.style.height = "48px";
-        child.firstChild.style.lineHeight = "48px";
-        child.style.fontSize = "32px";
+const answerQuestion = (answer, guess) => {
+    document.getElementById("answers").childNodes.forEach(answerElem => {
+        answerElem.onclick = () => false;
+        answerElem.style.backgroundColor = answerElem.lastChild.innerHTML === answer ? "#0f0" : "#f00";
+        answerElem.firstChild.style.height = "48px";
+        answerElem.firstChild.style.lineHeight = "48px";
+        answerElem.style.fontSize = "32px";
     });
-    setTimeout(() => stats.innerHTML.match(/_/g) ? askQuestion(questionPool) : end(), 1000);
+    setTimeout(() => askQuestion(), 1000);
 }
 
-const end = () => {
-    document.getElementById("question1").style.display = "none";
-    document.getElementById("result1").style.display = "flex";
-    document.getElementById("score1").innerHTML = "Score : " + (document.getElementById("stats1").innerHTML.match(/o/g) || []).length + "/" + document.getElementById("questionCount1").value;
+window.onload = () => {
+    document.getElementById("settings-container").onmouseenter = event => {
+        document.getElementById("settings").style.height = "217px";
+    }
+    
+    document.getElementById("settings-container").onmouseleave = event => {
+        document.getElementById("settings").style.height = "0px";
+    }
+
+    askQuestion();
 }
