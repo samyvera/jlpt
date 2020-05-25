@@ -1,31 +1,30 @@
 const askQuestion = () => {
     const settingOrder = document.getElementById("setting-order").value;
-    const questionMode = settingOrder === "question" ? "trad" : "jp";
-    const answerMode = settingOrder === "answer" ? "trad" : "jp";
+    const questionOrder = settingOrder === "question" ? "trad" : "jp";
+    const answerOrder = settingOrder === "answer" ? "trad" : "jp";
 
-    const questionPool = Array.from(document.getElementsByName("setting-mode"))
+    const possibleModes = Array.from(document.getElementsByName("setting-mode"))
         .filter(option => option.checked)
-        .map(option => QUESTIONS[option.value])
-        .flat();
-    if (!questionPool.length) window.location.reload(true);
+        .map(mode => mode.value);
+    if (possibleModes.length < 1) window.location.reload(true);
+    const mode = possibleModes[Math.floor(Math.random() * possibleModes.length)];
 
-    const possibleAnswers = questionPool.sort(() => .5 - Math.random()).slice(0, 4);
+    const possibleAnswers = QUESTIONS[mode]
+        .sort(() => .5 - Math.random())
+        .slice(0, 4);
     const answer = possibleAnswers[Math.floor(Math.random() * 4)];
 
     const questionElem = document.getElementById("question");
-    questionElem.innerHTML = '<p style="margin: 0 auto;z-index: 1;">' + answer[questionMode] + '</p>';
+    questionElem.innerHTML = '<div id="question-content">' + answer[questionOrder] + '</div>';
 
     const settingTimeAttack = document.getElementById("setting-time-attack").checked;
-    let timeout = null;
-    const timeoutElem = document.createElement("div");
-    timeoutElem.id = 'timeoutElem';
+    const settingTimeAttackSpeed = parseInt(document.getElementById("setting-time-attack-speed").value);
+    const timeout = settingTimeAttack ? setTimeout(() => answerQuestion(answer[questionOrder], ''), settingTimeAttackSpeed * 1000) : null;
     if (settingTimeAttack) {
-        const speed = parseInt(document.getElementById("setting-time-attack-speed").value);
-        timeoutElem.style.animation = "progress " + speed + "s ease-out";
+        const timeoutElem = document.createElement("div");
+        timeoutElem.id = 'timeoutElem';
+        timeoutElem.style.animation = "progress " + settingTimeAttackSpeed + "s ease-out";
         questionElem.appendChild(timeoutElem);
-        timeout = setTimeout(() => {
-            answerQuestion(answer[questionMode], '');
-        }, speed * 1000);
     }
 
     const answersElem = document.getElementById("answers");
@@ -38,16 +37,18 @@ const askQuestion = () => {
                 timeoutElem.style.webkitAnimationPlayState = 'paused';
                 clearTimeout(timeout);
             }
-            answerQuestion(answer[questionMode], possibleAnswer[questionMode]);
+            answerQuestion(answer[questionOrder], possibleAnswer[questionOrder]);
         }
         answersElem.appendChild(answerElem);
+
         const answerGuess = document.createElement("div");
         answerGuess.className = "answer-guess";
-        answerGuess.innerHTML = possibleAnswer[answerMode];
+        answerGuess.innerHTML = possibleAnswer[answerOrder];
         answerElem.appendChild(answerGuess);
+
         const answerValue = document.createElement("div");
         answerValue.className = "answer-value";
-        answerValue.innerHTML = possibleAnswer[questionMode];
+        answerValue.innerHTML = possibleAnswer[questionOrder];
         answerElem.appendChild(answerValue);
     });
 }
@@ -56,9 +57,10 @@ const answerQuestion = (answer, guess) => {
     document.getElementById("answers").childNodes.forEach(answerElem => {
         answerElem.onclick = () => false;
         answerElem.style.backgroundColor = answerElem.lastChild.innerHTML === answer ? "#0f0" : "#f00";
-        answerElem.firstChild.style.height = "48px";
-        answerElem.firstChild.style.lineHeight = "48px";
-        answerElem.style.fontSize = "32px";
+        answerElem.firstChild.style.height = "32px";
+        answerElem.firstChild.style.lineHeight = "32px";
+        answerElem.firstChild.style.fontSize = "32px";
+        answerElem.lastChild.style.color = "#fff";
     });
     setTimeout(() => askQuestion(), 1000);
 }

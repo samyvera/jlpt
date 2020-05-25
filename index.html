@@ -16,14 +16,14 @@
 
     <!-- Settings -->
     <div id="settings-container">
-        <p>Settings</p>
+        <div id="setting-title">Settings</div>
 
         <div id="settings" style="height: 0px;">
             <div class="option">
-                <label for="setting-order">Rōmaji in the</label>
+                <label for="setting-order">Rōmaji in</label>
                 <select name="setting-order" id="setting-order">
                     <option value="question">questions</option>
-                    <option value="answer">answers</option>
+                    <option value="answer" selected>answers</option>
                 </select>
             </div>
 
@@ -38,7 +38,7 @@
             </div>
 
             <div class="option">
-                <input type="checkbox" id="setting-kanji" name="setting-mode" value="kanji" disabled>
+                <input type="checkbox" id="setting-kanji" name="setting-mode" value="kanji">
                 <label for="setting-kanji">Kanji</label>
             </div>
 
