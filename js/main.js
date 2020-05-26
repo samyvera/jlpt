@@ -11,10 +11,11 @@ const askQuestion = () => {
     if (possibleModes.length < 1) window.location.reload(true);
     const mode = possibleModes[Math.floor(Math.random() * possibleModes.length)];
 
-    const possibleAnswers = QUESTIONS[mode]
+    const answerCount = 4;
+    const possibleAnswers = DATA[mode]
         .sort(() => .5 - Math.random())
-        .slice(0, 4);
-    const answer = possibleAnswers[Math.floor(Math.random() * 4)];
+        .slice(0, answerCount);
+    const answer = possibleAnswers[Math.floor(Math.random() * answerCount)];
 
     const questionElem = document.getElementById("question");
     questionElem.innerHTML = '<div id="question-content">' + answer[questionOrder] + '</div>';
@@ -25,7 +26,7 @@ const askQuestion = () => {
     if (settingTimeAttack) {
         const timeoutElem = document.createElement("div");
         timeoutElem.id = 'timeoutElem';
-        timeoutElem.style.animation = "progress " + settingTimeAttackSpeed + "s ease-out";
+        timeoutElem.style.animation = "progress " + settingTimeAttackSpeed + "s linear";
         questionElem.appendChild(timeoutElem);
     }
 
@@ -33,13 +34,13 @@ const askQuestion = () => {
     answersElem.innerHTML = "";
     possibleAnswers.forEach(possibleAnswer => {
         const answerElem = document.createElement("div");
-        answerElem.className = "answer";
+        answerElem.className = "answer " + (mode === "kanji" || mode === "vocabulary" ? "long" : "short");
         answerElem.onclick = () => {
             if (settingTimeAttack) {
                 timeoutElem.style.webkitAnimationPlayState = 'paused';
                 clearTimeout(timeout);
             }
-            answerQuestion(answer[questionOrder], possibleAnswer[questionOrder]);
+            answerQuestion(answer["trad"], possibleAnswer["trad"]);
         }
         answersElem.appendChild(answerElem);
 
@@ -60,10 +61,10 @@ const answerQuestion = (answer, guess) => {
     console.log(SCORE)
     document.getElementById("answers").childNodes.forEach(answerElem => {
         answerElem.onclick = () => false;
-        answerElem.style.backgroundColor = answerElem.lastChild.innerHTML === answer ? "#0f0" : "#f00";
-        answerElem.firstChild.style.height = "32px";
-        answerElem.firstChild.style.lineHeight = "32px";
-        answerElem.firstChild.style.fontSize = "32px";
+        answerElem.style.backgroundColor = (answerElem.firstChild.innerHTML === answer || answerElem.lastChild.innerHTML === answer) ? "#0d0" : "#d00";
+        answerElem.firstChild.style.height = "48px";
+        answerElem.firstChild.style.lineHeight = "48px";
+        answerElem.style.fontSize = "24px";
         answerElem.lastChild.style.color = "#fff";
     });
     setTimeout(() => askQuestion(), 1000);

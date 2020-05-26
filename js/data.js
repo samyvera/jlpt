@@ -1,5 +1,6 @@
-const QUESTIONS = {
-    hiragana: [{
+const DATA = {
+    hiragana: [
+        {
             jp: 'あ',
             trad: 'A'
         },
@@ -840,628 +841,628 @@ const QUESTIONS = {
             jp: '一',
             on: 'いち',
             kun: 'ひと－つ',
-            trad: 'one'
+            trad: 'One'
         },
         {
             jp: '二',
             on: 'に',
             kun: 'ふた－つ',
-            trad: 'two'
+            trad: 'Two'
         },
         {
             jp: '三',
             on: 'さん',
             kun: 'みっ－つ',
-            trad: 'three'
+            trad: 'Three'
         },
         {
             jp: '四',
             on: 'し',
-            kun: 'よん / よっ－つ',
-            trad: 'four'
+            kun: 'よん, よっ－つ',
+            trad: 'Four'
         },
         {
             jp: '五',
             on: 'ご',
             kun: 'いつ－つ',
-            trad: 'five'
+            trad: 'Five'
         },
         {
             jp: '六',
             on: 'ろく',
-            kun: 'むっ－つ / むい',
-            trad: 'six'
+            kun: 'むっ－つ, むい',
+            trad: 'Six'
         },
         {
             jp: '七',
             on: 'しち',
-            kun: 'なな－つ / なの / なぬ',
-            trad: 'seven'
+            kun: 'なな－つ, なの, なぬ',
+            trad: 'Seven'
         },
         {
             jp: '八',
             on: 'はち',
-            kun: 'やっ－つ / よう',
-            trad: 'eight'
+            kun: 'やっ－つ, よう',
+            trad: 'Eight'
         },
         {
             jp: '九',
-            on: 'きゅう / く',
+            on: 'きゅう, く',
             kun: 'ここの－つ',
-            trad: 'nine'
+            trad: 'Nine'
         },
         {
             jp: '十',
             on: 'じゅう',
-            kun: 'とお / とう',
-            trad: 'ten'
+            kun: 'とお, とう',
+            trad: 'Ten'
         },
         {
             jp: '百',
             on: 'ひゃく',
             kun: 'もも',
-            trad: 'hundred'
+            trad: 'Hundred'
         },
         {
             jp: '千',
             on: 'せん',
             kun: 'ち',
-            trad: 'thousand'
+            trad: 'Thousand'
         },
         {
             jp: '万',
-            on: 'ばん / まん',
+            on: 'ばん, まん',
             kun: 'よろず',
-            trad: 'ten thousand'
+            trad: 'Ten thousand'
         },
         {
             jp: '円',
             on: 'えん',
-            kun: 'まる－い / まど－か / つぶ－ら',
-            trad: 'circle / round / yen'
+            kun: 'まる－い, まど－か, つぶ－ら',
+            trad: 'Circle, Round, Yen'
         },
         {
             jp: '日',
-            on: 'じつ / にち',
-            kun: 'ひ / か',
-            trad: 'sun / day'
+            on: 'じつ, にち',
+            kun: 'ひ, か',
+            trad: 'Sun, Day'
         },
         {
             jp: '週',
             on: '',
             kun: '',
-            trad: 'week'
+            trad: 'Week'
         },
         {
             jp: '月',
-            on: 'がつ / げつ',
+            on: 'がつ, げつ',
             kun: 'つき',
-            trad: 'moon / month'
+            trad: 'Moon, Month'
         },
         {
             jp: '年',
             on: 'ねん',
             kun: 'とし',
-            trad: 'year'
+            trad: 'Year'
         },
         {
             jp: '時',
             on: 'じ',
             kun: 'とき',
-            trad: 'time / hour'
+            trad: 'Time, Hour'
         },
         {
             jp: '間',
-            on: 'かん / けん',
-            kun: 'あいだ / ま',
-            trad: 'interval / span of time / time frame'
+            on: 'かん, けん',
+            kun: 'あいだ, ま',
+            trad: 'Interval, Span of time, Time frame'
         },
         {
             jp: '分',
-            on: 'ぶん / ふん / ぶ',
-            kun: 'わ－ける / わ－かる / わ－かつ',
-            trad: 'minute / part / to divide / to understand'
+            on: 'ぶん, ふん, ぶ',
+            kun: 'わ－ける, わ－かる, わ－かつ',
+            trad: 'Minute, To divide, To understand'
         },
         {
             jp: '午',
             on: 'ご',
             kun: 'うま',
-            trad: 'noon'
+            trad: 'Noon'
         },
         {
             jp: '前',
             on: 'ぜん',
-            kun: 'まえ / さき',
-            trad: 'before / in front of / previous'
+            kun: 'まえ, さき',
+            trad: 'Before, In front of, Previous'
         },
         {
             jp: '後',
-            on: 'ご / こう',
-            kun: 'うし－ろ / のち / あと',
-            trad: 'after / behind / later'
+            on: 'ご, こう',
+            kun: 'うし－ろ, のち, あと',
+            trad: 'After, Behind, Later'
         },
         {
             jp: '今',
-            on: 'こん / きん',
+            on: 'こん, きん',
             kun: 'いま',
-            trad: 'now / the present'
+            trad: 'Now, The present'
         },
         {
             jp: '先',
             on: 'せん',
             kun: 'さき',
-            trad: 'previous / ahead / the future'
+            trad: 'Previous, Ahead, The future'
         },
         {
             jp: '来',
             on: 'らい',
             kun: 'く－る',
-            trad: 'to come'
+            trad: 'To come'
         },
         {
             jp: '半',
             on: 'はん',
             kun: 'なか－ば',
-            trad: 'half / middle'
+            trad: 'Half, Middle'
         },
         {
             jp: '毎',
             on: 'まい',
             kun: 'ごと',
-            trad: 'every / each'
+            trad: 'Every, Each'
         },
         {
             jp: '何',
             on: 'か',
-            kun: 'なに / なん / いず－れ',
-            trad: 'what / which / how many'
+            kun: 'なに, なん, いず－れ',
+            trad: 'What, Which, How many'
         },
         {
             jp: '人',
-            on: 'じん / にん',
+            on: 'じん, にん',
             kun: 'ひと',
-            trad: 'person'
+            trad: 'Person'
         },
         {
             jp: '男',
-            on: 'だん / なん',
-            kun: 'おとこ / おのこ / お',
-            trad: 'man / male'
+            on: 'だん, なん',
+            kun: 'おとこ, おのこ, お',
+            trad: 'Man, Male'
         },
         {
             jp: '女',
-            on: 'じょ / にょ',
+            on: 'じょ, にょ',
             kun: 'おんな',
-            trad: 'woman / female'
+            trad: 'Woman, Female'
         },
         {
             jp: '子',
-            on: 'し / す',
-            kun: 'こ / ね',
-            trad: 'child'
+            on: 'し, す',
+            kun: 'こ, ね',
+            trad: 'Child'
         },
         {
             jp: '母',
-            on: 'ぼ / も',
+            on: 'ぼ, も',
             kun: 'はは',
-            trad: 'mother'
+            trad: 'Mother'
         },
         {
             jp: '父',
             on: 'ふ',
             kun: 'ちち',
-            trad: 'father'
+            trad: 'Father'
         },
         {
             jp: '友',
             on: 'ゆう',
             kun: 'とも',
-            trad: 'friend'
+            trad: 'Friend'
         },
         {
             jp: '火',
             on: 'か',
-            kun: 'ひ / ほ',
-            trad: 'fire / light'
+            kun: 'ひ, ほ',
+            trad: 'Fire, Light'
         },
         {
             jp: '水',
             on: 'すい',
             kun: 'みず',
-            trad: 'water'
+            trad: 'Water'
         },
         {
             jp: '木',
-            on: 'もく / ぼく',
+            on: 'もく, ぼく',
             kun: 'き',
-            trad: 'tree / wood'
+            trad: 'Tree, Wood'
         },
         {
             jp: '土',
-            on: 'ど / と',
+            on: 'ど, と',
             kun: 'つち',
-            trad: 'earth / ground / soil'
+            trad: 'Earth, Ground'
         },
         {
             jp: '金',
-            on: 'きん / こん',
+            on: 'きん, こん',
             kun: 'かね',
-            trad: 'gold / money'
+            trad: 'Gold, Money'
         },
         {
             jp: '本',
             on: 'ほん',
             kun: 'もと',
-            trad: 'root / source / book'
+            trad: 'Root, Source, Book'
         },
         {
             jp: '川',
             on: 'せん',
             kun: 'かわ',
-            trad: 'river / stream'
+            trad: 'River, Stream'
         },
         {
             jp: '花',
             on: '',
             kun: '',
-            trad: 'flower'
+            trad: 'Flower'
         },
         {
             jp: '気',
-            on: 'き / け',
+            on: 'き, け',
             kun: '',
-            trad: 'spirit / intention / mind / power / energy'
+            trad: 'Spirit, Intention, Energy'
         },
         {
             jp: '生',
-            on: 'せい / しょう',
-            kun: 'う－む / い－きる / なま',
-            trad: 'birth / life / to give birth / to live / raw'
+            on: 'せい, しょう',
+            kun: 'う－む, い－きる, なま',
+            trad: 'Birth, Life, To give birth, To live, Raw'
         },
         {
             jp: '魚',
             on: '',
             kun: '',
-            trad: 'fish'
+            trad: 'Fish'
         },
         {
             jp: '天',
             on: 'てん',
-            kun: 'あま / あめ',
-            trad: 'heaven / sky'
+            kun: 'あま, あめ',
+            trad: 'Heaven, Sky'
         },
         {
             jp: '空',
             on: '',
             kun: '',
-            trad: 'sky / empty'
+            trad: 'Sky, Empty'
         },
         {
             jp: '山',
-            on: 'さん / せん',
+            on: 'さん, せん',
             kun: 'やま',
-            trad: 'mountain'
+            trad: 'Mountain'
         },
         {
             jp: '雨',
             on: 'う',
-            kun: 'あま / あめ',
-            trad: 'rain'
+            kun: 'あま, あめ',
+            trad: 'Rain'
         },
         {
             jp: '電',
             on: 'でん',
             kun: 'いかずち',
-            trad: 'electricity / electric powered'
+            trad: 'Electricity, Electric powered'
         },
         {
             jp: '車',
             on: 'しゃ',
             kun: 'くるま',
-            trad: 'wheel / vehicle / car'
+            trad: 'Wheel, Vehicle, Car'
         },
         {
             jp: '語',
             on: 'ご',
-            kun: 'かたり / かた－る',
-            trad: 'word / speech / language / narration / to tell / to speak'
+            kun: 'かたり, かた－る',
+            trad: 'Word, Speech, Language, Narration, To tell'
         },
         {
             jp: '耳',
             on: '',
             kun: '',
-            trad: 'ear'
+            trad: 'Ear'
         },
         {
             jp: '手',
             on: '',
             kun: '',
-            trad: 'hand'
+            trad: 'Hand'
         },
         {
             jp: '足',
             on: '',
             kun: '',
-            trad: 'foot'
+            trad: 'Foot'
         },
         {
             jp: '目',
             on: '',
             kun: '',
-            trad: 'eye'
+            trad: 'Eye'
         },
         {
             jp: '口',
             on: '',
             kun: '',
-            trad: 'mouth'
+            trad: 'Mouth'
         },
         {
             jp: '名',
-            on: 'めい / みょう',
+            on: 'めい, みょう',
             kun: 'な',
-            trad: 'name / fame / famous / name'
+            trad: 'Name, Fame, Famous'
         },
         {
             jp: '店',
             on: '',
             kun: '',
-            trad: 'shop'
+            trad: 'Shop'
         },
         {
             jp: '駅',
             on: '',
             kun: '',
-            trad: 'station'
+            trad: 'Station'
         },
         {
             jp: '道',
             on: '',
             kun: '',
-            trad: 'street'
+            trad: 'Street'
         },
         {
             jp: '社',
             on: '',
             kun: '',
-            trad: 'shrine / society'
+            trad: 'Shrine, Society'
         },
         {
             jp: '国',
-            on: 'こく / ごく',
+            on: 'こく, ごく',
             kun: 'くに',
-            trad: 'country / nation'
+            trad: 'Country, Nation'
         },
         {
             jp: '外',
-            on: 'がい / げ / うい',
-            kun: 'ほか / そと',
-            trad: 'outside / foreign / other'
+            on: 'がい, げ, うい',
+            kun: 'ほか, そと',
+            trad: 'Outside, Foreign, Other'
         },
         {
             jp: '学',
             on: 'がく',
             kun: 'まな－ぶ',
-            trad: 'school / learning / science / to learn'
+            trad: 'School, Learning, Science, To learn'
         },
         {
             jp: '校',
             on: 'こう',
             kun: 'あぜ',
-            trad: 'school'
+            trad: 'School'
         },
         {
             jp: '上',
-            on: 'じょう / しょう',
-            kun: 'うえ / うわ / あ－げる / あ－がる / のぼ－る / のぼ－せる / かみ',
-            trad: 'top / above / to raise / to rise / up'
+            on: 'じょう, しょう',
+            kun: 'うえ, うわ, あ－げる, あ－がる, のぼ－る, のぼ－せる, かみ',
+            trad: 'Top, Above, To raise, To rise, Up'
         },
         {
             jp: '下',
-            on: 'か / げ',
-            kun: 'した / しも / さ－げる / さ－がる / くだ－る / くだ－す / お－りる / お－ろす',
-            trad: 'bottom / under / down'
+            on: 'か, げ',
+            kun: 'した, しも, さ－げる, さ－がる, くだ－る, くだ－す, お－りる, お－ろす',
+            trad: 'Bottom, Under, Down'
         },
         {
             jp: '中',
-            on: 'ちゅう / じゅう',
-            kun: 'なか / あた－る',
-            trad: 'middle / center / within / inside'
+            on: 'ちゅう, じゅう',
+            kun: 'なか, あた－る',
+            trad: 'Middle, Center, Within, Inside'
         },
         {
             jp: '北',
             on: 'ほく',
             kun: 'きた',
-            trad: 'north'
+            trad: 'North'
         },
         {
             jp: '西',
-            on: 'せい / さい',
+            on: 'せい, さい',
             kun: 'にし',
-            trad: 'west'
+            trad: 'West'
         },
         {
             jp: '東',
             on: 'とう',
-            kun: 'ひがし / ひんがし',
-            trad: 'east'
+            kun: 'ひがし, ひんがし',
+            trad: 'East'
         },
         {
             jp: '南',
             on: 'なん',
             kun: 'みなみ',
-            trad: 'south'
+            trad: 'South'
         },
         {
             jp: '右',
-            on: 'ゆう / う',
+            on: 'ゆう, う',
             kun: 'みぎ',
-            trad: 'right'
+            trad: 'Right'
         },
         {
             jp: '左',
             on: 'さ',
             kun: 'ひだり',
-            trad: 'left'
+            trad: 'Left'
         },
         {
             jp: '見',
             on: 'けん',
-            kun: 'み－る / み－せる',
-            trad: 'to see / to show'
+            kun: 'み－る, み－せる',
+            trad: 'To see, To show'
         },
         {
             jp: '聞',
-            on: 'ぶん / もん',
+            on: 'ぶん, もん',
             kun: 'き－く',
-            trad: 'to hear / to listen / to ask'
+            trad: 'To hear, To listen, To ask'
         },
         {
             jp: '書',
             on: 'しょ',
             kun: 'か－く',
-            trad: 'book / document / to write'
+            trad: 'Book, Document, To write'
         },
         {
             jp: '読',
-            on: 'どく / とう',
+            on: 'どく, とう',
             kun: 'よ－む',
-            trad: 'to read'
+            trad: 'To read'
         },
         {
             jp: '話',
             on: 'わ',
-            kun: 'はなし / はな－す',
-            trad: 'to talk / conversation / topic'
+            kun: 'はなし, はな－す',
+            trad: 'To talk, Conversation, Topic'
         },
         {
             jp: '買',
             on: '',
             kun: '',
-            trad: 'to buy'
+            trad: 'To buy'
         },
         {
             jp: '行',
-            on: 'ぎょう / こう / あん',
-            kun: 'い－く / ゆ－く',
-            trad: 'to go'
+            on: 'ぎょう, こう, あん',
+            kun: 'い－く, ゆ－く',
+            trad: 'To go'
         },
         {
             jp: '出',
-            on: 'しゅつ / すい',
-            kun: 'だ－す / いだ－す / で－る',
-            trad: 'to go out / leave'
+            on: 'しゅつ, すい',
+            kun: 'だ－す, いだ－す, で－る',
+            trad: 'To go out, Leave'
         },
         {
             jp: '入',
-            on: 'にゅう / じゅ',
-            kun: 'い－る / はい－る',
-            trad: 'enter / to go in / to insert'
+            on: 'にゅう, じゅ',
+            kun: 'い－る, はい－る',
+            trad: 'Enter, To go in, To insert'
         },
         {
             jp: '休',
             on: 'きゅう',
-            kun: 'やす－み / やす－む',
-            trad: 'to rest / vacation'
+            kun: 'やす－み, やす－む',
+            trad: 'To rest, Vacation'
         },
         {
             jp: '食',
-            on: 'じき / しょく',
-            kun: 'く－う / た－べる',
-            trad: 'to eat / meal / food'
+            on: 'じき, しょく',
+            kun: 'く－う, た－べる',
+            trad: 'To eat, Meal, Food'
         },
         {
             jp: '飲',
             on: '',
             kun: '',
-            trad: 'to drink'
+            trad: 'To drink'
         },
         {
             jp: '言',
             on: '',
             kun: '',
-            trad: 'to talk / word'
+            trad: 'To talk, Word'
         },
         {
             jp: '立',
             on: '',
             kun: '',
-            trad: 'to stand'
+            trad: 'To stand'
         },
         {
             jp: '会',
-            on: 'かい / え',
+            on: 'かい, え',
             kun: 'あ－う',
-            trad: 'to meet / society'
+            trad: 'To meet, Society'
         },
         {
             jp: '多',
             on: '',
             kun: '',
-            trad: 'a lot / many'
+            trad: 'A lot, Many'
         },
         {
             jp: '少',
             on: '',
             kun: '',
-            trad: 'a little / few'
+            trad: 'A little, Few'
         },
         {
             jp: '古',
             on: '',
             kun: '',
-            trad: 'old'
+            trad: 'Old'
         },
         {
             jp: '新',
             on: '',
             kun: '',
-            trad: 'new'
+            trad: 'New'
         },
         {
             jp: '大',
-            on: 'だい / たい',
+            on: 'だい, たい',
             kun: 'おお－きい',
-            trad: 'great / big'
+            trad: 'Great, Big'
         },
         {
             jp: '小',
             on: 'しょう',
-            kun: 'こ / お / ちい－さい',
-            trad: 'small / little'
+            kun: 'こ, お, ちい－さい',
+            trad: 'Small, Little'
         },
         {
             jp: '安',
             on: '',
             kun: '',
-            trad: 'cheap / safety / peace'
+            trad: 'Cheap, Safety, Peace'
         },
         {
             jp: '高',
             on: 'こう',
-            kun: 'たか－い / たか',
-            trad: 'high / costly / tall'
+            kun: 'たか－い, たか',
+            trad: 'High, Costly, Tall'
         },
         {
             jp: '長',
             on: 'ちょう',
             kun: 'なが－い',
-            trad: 'leader / long'
+            trad: 'Leader, Long'
         },
         {
             jp: '白',
-            on: 'はく / びゃく',
-            kun: 'しろ / しら / しろ－い',
-            trad: 'white'
+            on: 'はく, びゃく',
+            kun: 'しろ, しら, しろ－い',
+            trad: 'White'
         }
     ],
     vocabulary: [{
             jp: '一人',
-            trad: 'one person, alone'
+            trad: 'One person, Alone'
         },
         {
             jp: '二人',
-            trad: 'two people, pair'
+            trad: 'Two people, Pair'
         },
         {
             jp: '三日',
@@ -1505,19 +1506,19 @@ const QUESTIONS = {
         },
         {
             jp: '万年筆',
-            trad: 'fountain pen'
+            trad: 'Fountain pen'
         },
         {
             jp: '円い',
-            trad: 'round'
+            trad: 'Round'
         },
         {
             jp: '明日',
-            trad: 'tomorrow'
+            trad: 'Tomorrow'
         },
         {
             jp: '毎週',
-            trad: 'every week'
+            trad: 'Every week'
         },
         {
             jp: '月曜日',
@@ -1525,103 +1526,103 @@ const QUESTIONS = {
         },
         {
             jp: '今年',
-            trad: 'this year'
+            trad: 'This year'
         },
         {
             jp: '去年',
-            trad: 'last year'
+            trad: 'Last year'
         },
         {
             jp: '時計',
-            trad: 'clock, watch'
+            trad: 'Clock, Watch'
         },
         {
             jp: '時間',
-            trad: 'time, hours'
+            trad: 'Time, Hours'
         },
         {
             jp: '三十分',
-            trad: 'thirty minutes'
+            trad: 'Thirty minutes'
         },
         {
             jp: '自分',
-            trad: 'oneself'
+            trad: 'Oneself'
         },
         {
             jp: '午前',
-            trad: 'morning, A.M.'
+            trad: 'Morning, A.M.'
         },
         {
             jp: '名前',
-            trad: 'name'
+            trad: 'Name'
         },
         {
             jp: '午後',
-            trad: 'afternoon, P.M.'
+            trad: 'Afternoon, P.M.'
         },
         {
             jp: '今晩',
-            trad: 'this evening'
+            trad: 'This evening'
         },
         {
             jp: '今朝',
-            trad: 'this morning'
+            trad: 'This morning'
         },
         {
             jp: '先週',
-            trad: 'last week'
+            trad: 'Last week'
         },
         {
             jp: '先生',
-            trad: 'teacher, master'
+            trad: 'Teacher, Master'
         },
         {
             jp: '来月',
-            trad: 'next month'
+            trad: 'Next month'
         },
         {
             jp: '来る',
-            trad: 'to come'
+            trad: 'To come'
         },
         {
             jp: '半分',
-            trad: 'half'
+            trad: 'Half'
         },
         {
             jp: '毎日',
-            trad: 'every day'
+            trad: 'Every day'
         },
         {
             jp: '何曜日',
-            trad: 'what day of the week'
+            trad: 'What day of the week'
         },
         {
             jp: '人々',
-            trad: 'people'
+            trad: 'People'
         },
         {
             jp: '男の子',
-            trad: 'boy'
+            trad: 'Boy'
         },
         {
             jp: '女の子',
-            trad: 'girl'
+            trad: 'Girl'
         },
         {
             jp: '子供',
-            trad: 'child'
+            trad: 'Child'
         },
         {
             jp: '母',
-            trad: 'mother'
+            trad: 'Mother'
         },
         {
             jp: '父',
-            trad: 'father'
+            trad: 'Father'
         },
         {
             jp: '友達',
-            trad: 'friend'
+            trad: 'Friend'
         },
         {
             jp: '火曜日',
@@ -1649,47 +1650,47 @@ const QUESTIONS = {
         },
         {
             jp: '川',
-            trad: 'river'
+            trad: 'River'
         },
         {
             jp: '花火',
-            trad: 'fireworks'
+            trad: 'Fireworks'
         },
         {
             jp: '元気',
-            trad: 'healthy, spirit, fine'
+            trad: 'Healthy, Spirit, Fine'
         },
         {
             jp: '生徒',
-            trad: 'pupil'
+            trad: 'Pupil'
         },
         {
             jp: '魚',
-            trad: 'fish'
+            trad: 'Fish'
         },
         {
             jp: '天気',
-            trad: 'weather'
+            trad: 'Weather'
         },
         {
             jp: '空',
-            trad: 'sky'
+            trad: 'Sky'
         },
         {
             jp: '山',
-            trad: 'mountain'
+            trad: 'Mountain'
         },
         {
             jp: '雨',
-            trad: 'rain'
+            trad: 'Rain'
         },
         {
             jp: '電気',
-            trad: 'electricity'
+            trad: 'Electricity'
         },
         {
             jp: '電車',
-            trad: 'electric train'
+            trad: 'Electric train'
         },
         {
             jp: '英語',
@@ -1697,79 +1698,79 @@ const QUESTIONS = {
         },
         {
             jp: '耳',
-            trad: 'ear'
+            trad: 'Ear'
         },
         {
             jp: '手紙',
-            trad: 'letter'
+            trad: 'Letter'
         },
         {
             jp: '足',
-            trad: 'foot'
+            trad: 'Foot'
         },
         {
             jp: '目',
-            trad: 'eye'
+            trad: 'Eye'
         },
         {
             jp: '出口',
-            trad: 'exit'
+            trad: 'Exit'
         },
         {
             jp: '名前',
-            trad: 'name'
+            trad: 'Name'
         },
         {
             jp: '喫茶店',
-            trad: 'coffee shop'
+            trad: 'Coffee shop'
         },
         {
             jp: '駅前',
-            trad: 'in front of the station'
+            trad: 'In front of the station'
         },
         {
             jp: '道具',
-            trad: 'tool'
+            trad: 'Tool'
         },
         {
             jp: '社長',
-            trad: 'president of a company'
+            trad: 'President of a company'
         },
         {
             jp: '外国人',
-            trad: 'foreigner'
+            trad: 'Foreigner'
         },
         {
             jp: '外国',
-            trad: 'foreign country'
+            trad: 'Foreign country'
         },
         {
             jp: '大学',
-            trad: 'university'
+            trad: 'University'
         },
         {
             jp: '学校',
-            trad: 'school'
+            trad: 'School'
         },
         {
             jp: '上着',
-            trad: 'jacket'
+            trad: 'Jacket'
         },
         {
             jp: '靴下',
-            trad: 'socks'
+            trad: 'Socks'
         },
         {
             jp: '日中',
-            trad: 'during the day, midday'
+            trad: 'During the day, Midday'
         },
         {
             jp: '北',
-            trad: 'north'
+            trad: 'North'
         },
         {
             jp: '西',
-            trad: 'west'
+            trad: 'West'
         },
         {
             jp: '東京',
@@ -1777,135 +1778,135 @@ const QUESTIONS = {
         },
         {
             jp: '南',
-            trad: 'south'
+            trad: 'South'
         },
         {
             jp: '右',
-            trad: 'right'
+            trad: 'Right'
         },
         {
             jp: '左',
-            trad: 'left'
+            trad: 'Left'
         },
         {
             jp: '見せる',
-            trad: 'to show'
+            trad: 'To show'
         },
         {
             jp: '聞く',
-            trad: 'to listen, to hear'
+            trad: 'To listen, To hear'
         },
         {
             jp: '辞書',
-            trad: 'dictionary'
+            trad: 'Dictionary'
         },
         {
             jp: '読む',
-            trad: 'to read'
+            trad: 'To read'
         },
         {
             jp: '電話',
-            trad: 'telephone'
+            trad: 'Telephone'
         },
         {
             jp: '買い物',
-            trad: 'shopping'
+            trad: 'Shopping'
         },
         {
             jp: '銀行',
-            trad: 'bank'
+            trad: 'Bank'
         },
         {
             jp: '出かける',
-            trad: 'to go out'
+            trad: 'To go out'
         },
         {
             jp: '入口',
-            trad: 'entrance'
+            trad: 'Entrance'
         },
         {
             jp: '休む',
-            trad: 'to take a day off'
+            trad: 'To take a day off'
         },
         {
             jp: '食堂',
-            trad: 'dining room'
+            trad: 'Dining room'
         },
         {
             jp: '飲み物',
-            trad: 'beverage'
+            trad: 'Beverage'
         },
         {
             jp: '言う',
-            trad: 'to say'
+            trad: 'To say'
         },
         {
             jp: '立つ',
-            trad: 'to stand'
+            trad: 'To stand'
         },
         {
             jp: '会社',
-            trad: 'company'
+            trad: 'Company'
         },
         {
             jp: '多い',
-            trad: 'many'
+            trad: 'Many'
         },
         {
             jp: '多分',
-            trad: 'probably'
+            trad: 'Probably'
         },
         {
             jp: '少ない',
-            trad: 'few'
+            trad: 'Few'
         },
         {
             jp: '古い',
-            trad: 'old'
+            trad: 'Old'
         },
         {
             jp: '新しい',
-            trad: 'new'
+            trad: 'New'
         },
         {
             jp: '新聞',
-            trad: 'newspaper'
+            trad: 'Newspaper'
         },
         {
             jp: '大きい',
-            trad: 'big'
+            trad: 'Big'
         },
         {
             jp: '大変',
-            trad: 'dreadful, immense'
+            trad: 'Dreadful, Immense'
         },
         {
             jp: '小さい',
-            trad: 'little'
+            trad: 'Little'
         },
         {
             jp: '安い',
-            trad: 'cheap'
+            trad: 'Cheap'
         },
         {
             jp: '高い',
-            trad: 'expensive'
+            trad: 'Expensive'
         },
         {
             jp: '長い',
-            trad: 'long'
+            trad: 'Long'
         },
         {
             jp: '部長',
-            trad: 'manager'
+            trad: 'Manager'
         },
         {
             jp: '白い',
-            trad: 'white'
+            trad: 'White'
         },
         {
             jp: '面白い',
-            trad: 'interesting'
+            trad: 'Interesting'
         }
     ]
 }
