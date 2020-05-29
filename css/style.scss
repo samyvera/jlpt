@@ -28,7 +28,7 @@ html {
             padding: 8px;
             background-color: $color;
             box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-secondary, 8px 8px $color-dark;
-            z-index: 100;
+            z-index: 3;
 
             #setting-title {
                 margin: 8px;
@@ -59,6 +59,21 @@ html {
             box-shadow: $color-dark 16px 16px;
             flex-shrink: 0;
 
+            #score {
+                position: absolute;
+                width: 64px;
+                height: 64px;
+                margin: 8px 4px;
+                background-color: $color;
+                box-shadow: inset 0 0 0 2px $color-dark, inset 0 0 0 4px $color-secondary, 4px 4px $color-black; 
+                border-radius: 48px;
+                font-size: 32px;
+                text-align: center;
+                line-height: 64px;
+                transform: rotate(-15deg);
+                transition: .2s;
+            }
+
             #question {
                 height: 32px;
                 margin: 16px;
@@ -76,7 +91,6 @@ html {
                     font-size: 24px;
                     text-align: center;
                     line-height: 24px;
-                    z-index: 1;
                 }
 
                 #timeoutElem {
@@ -122,6 +136,7 @@ html {
                     }
 
                     &:hover {
+                        z-index: 2;
                         margin: 12px 20px 20px 12px;
                         background-color: $color-light;
                         box-shadow: inset 0 0 0 2px $color, inset 0 0 0 4px $color-secondary-light, 8px 8px $color-black;

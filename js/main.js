@@ -58,7 +58,14 @@ const askQuestion = () => {
 
 const answerQuestion = (answer, guess) => {
     SCORE = guess === answer ? SCORE + 1 : 0;
-    console.log(SCORE)
+    const scoreElem = document.getElementById("score");
+    scoreElem.innerHTML = "x" + SCORE;
+    scoreElem.style.opacity = SCORE > 1 ? 1 : 0;
+    scoreElem.animate([
+        { transform: "rotate(-15deg) scale(2)" },
+        { transform: "rotate(-15deg) scale(1)" }
+    ], 200);
+
     document.getElementById("answers").childNodes.forEach(answerElem => {
         answerElem.onclick = () => false;
         answerElem.style.backgroundColor = (answerElem.firstChild.innerHTML === answer || answerElem.lastChild.innerHTML === answer) ? "#0d0" : "#d00";
